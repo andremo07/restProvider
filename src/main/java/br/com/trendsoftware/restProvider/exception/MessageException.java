@@ -5,7 +5,7 @@ public interface MessageException
 	String GENERAL_ERROR = "GENERAL_ERROR";
 	String BODY_RESPONSE_ERROR = "BODY_RESPONSE_ERROR";
 	String ERROR_QUERY_USER_INFO = "Error querying user information";
-	String ERROR_QUERY_ORDER = "Error querying order";
+	String ERROR_QUERY_ORDER = "Error querying orders";
 	String ERROR_QUERY_ORDER_MESSAGES = "Error querying order messages";
 	String ERROR_QUERY_SHIPPING_INFO = "Error querying shipping information";
 	String ERROR_QUERY_USER_ITENS = "Error querying user itens";
