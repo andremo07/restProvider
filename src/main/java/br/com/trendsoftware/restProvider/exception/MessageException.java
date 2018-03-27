@@ -8,6 +8,7 @@ public interface MessageException
 	String ERROR_QUERY_ORDER = "Error querying orders";
 	String ERROR_QUERY_ORDER_MESSAGES = "Error querying order messages";
 	String ERROR_QUERY_SHIPPING_INFO = "Error querying shipping information";
+	String ERROR_QUERY_MUNICIPY_CODE = "Error querying municipy code";
 	String ERROR_QUERY_USER_ITENS = "Error querying user itens";
 	String ERROR_QUERY_USER_ITEM = "Error querying user item";
 	String ERROR_ADD_ITEM = "Error adding item";
