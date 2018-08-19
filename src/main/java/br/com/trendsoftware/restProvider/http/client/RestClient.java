@@ -124,7 +124,7 @@ public abstract class RestClient {
 	public void setDefaulRequestHeader(BoundRequestBuilder requestBuilder){
 		FluentCaseInsensitiveStringsMap headersMap = new FluentCaseInsensitiveStringsMap();
 		headersMap.add("Accept", "application/json");
-		headersMap.add("Content-Type", "application/json");
+		headersMap.add("Content-Type", "application/json; charset=utf-8");
 		requestBuilder.setHeaders(headersMap);
 	}
 	
