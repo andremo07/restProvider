@@ -38,6 +38,13 @@ public class RestClient {
 		return http;
 	}
 
+	private static BoundRequestBuilder prepareGet(String apiUrl) 
+	{
+		BoundRequestBuilder requestBuilder = http.prepareGet(apiUrl);
+		setDefaulRequestHeader(requestBuilder);
+		return requestBuilder;
+	}
+	
 	private static BoundRequestBuilder prepareGet(String apiUrl,String path, Map<String, List<String>> params) {
 
 		BoundRequestBuilder requestBuilder = http.prepareGet(apiUrl + path);
@@ -46,6 +53,13 @@ public class RestClient {
 		return requestBuilder;
 	}
 
+	private static BoundRequestBuilder prepareGet(String apiUrl, Map<String,String> headers) {
+		BoundRequestBuilder requestBuilder = http.prepareGet(apiUrl);
+		setDefaulRequestHeader(requestBuilder);
+		addHeaders(requestBuilder,headers);
+		return requestBuilder;
+	}
+	
 	private static BoundRequestBuilder prepareGet(String apiUrl,String path, Map<String, List<String>> params, Map<String,String> headers) {
 		BoundRequestBuilder requestBuilder = http.prepareGet(apiUrl + path);
 		setDefaulRequestHeader(requestBuilder);
@@ -142,6 +156,21 @@ public class RestClient {
 		return get(apiUrl,path, new HashMap<String, List<String>>());
 	}
 
+	public static Response get(String apiUrl,Map<String,String> headers) throws RestClientException {
+
+		BoundRequestBuilder r = prepareGet(apiUrl,headers);
+
+		Response response;
+		try {
+			response = r.execute().get();
+		} catch (Exception e) {
+			throw new RestClientException(e.getMessage());
+		}
+
+		return response;
+	}
+	
+	
 	public static Response get(String apiUrl,String path, Map<String, List<String>> params, Map<String,String> headers) throws RestClientException {
 
 		BoundRequestBuilder r = prepareGet(apiUrl,path,params,headers);
@@ -155,6 +184,21 @@ public class RestClient {
 
 		return response;
 	}
+	
+	public static Response get(String apiUrl) throws RestClientException {
+
+		BoundRequestBuilder r = prepareGet(apiUrl);
+
+		Response response;
+		try {
+			response = r.execute().get();
+		} catch (Exception e) {
+			throw new RestClientException(e.getMessage());
+		}
+
+		return response;
+	}
+
 
 	public static Response get(String apiUrl,String path, Map<String, List<String>> params) throws RestClientException {
 
